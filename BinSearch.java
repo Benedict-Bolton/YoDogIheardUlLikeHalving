@@ -86,12 +86,30 @@ public class BinSearch {
       post: true if sorted in ascending order, false otherwise
       ==================================================*/
     private static boolean isSorted( int[] arr ) {
-	int prev = 0;
+	int prev = (arr[0] - 1);
 	for (int cur: arr) {
 	    if (cur < prev) {
 		return false;
 	    }
 	    prev = cur;
+	}
+	return true;
+    }
+
+
+    /*==================================================
+      int isSorted(Comparable[]) -- checks if array is sorted in ascending order
+      pre:  input is array of comparables
+      post: true if sorted in ascending order, false otherwise
+      ==================================================*/
+    private static boolean isSorted( Comparable[] arr ) {
+	
+	boolean retBoo = true;
+	
+	for (int i = 0; i < arr.length; i++) {
+	    if (arr[i].compareTo(arr[i+1]) < 0) {
+		return false;
+	    }
 	}
 	return true;
     }
